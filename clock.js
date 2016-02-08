@@ -1,3 +1,6 @@
+<!-- The timer() function and the use of setInterval were modeled on the script from here:
+http://www.w3schools.com/js/js_timing.asp
+-->
 var currentTime = new Date();
 var timerInterval = setInterval(timer, 1000);
 var lastTime = currentTime.toLocaleTimeString()
