@@ -5,12 +5,21 @@
 <body>
 
   <div class="wrap">
-    <img id="clock-picture" src="clock-base.png" alt="clock-base" width="802" height="802">
+    <img id="clock-picture" src="clock-base.png" alt="clock-base" width="802" height="802" usemap="#clockmap">
     <span id="time" class="desc"></span>
   </div>
-
-
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="clock.js"></script>
+<!-- getting ready for clockmap stuff
+    set toggle button coordinates: "570,325,640,424"
+    minus time button coordinates: "169,672,275,739"
+    add time button coordinates: "559,673,668,742"
+    type (hour/minute/second) button coordinates: "371,583,466,642"
+    12 hour button coordinates: "641,325,667,424"
+    24 hour button coordinates: "668,325,731,424"
+-->
+  <map name="clockmap">
+    <area id="setbtn" shape="rect" coords="570,325,640,424" onclick="toggleSet()"> <!-- need a toggleSet() function! -->
+  </map>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="clock.js"></script>
 </body>
 </html>
