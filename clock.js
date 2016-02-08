@@ -49,7 +49,7 @@ var toggleSet = function(){
     }
   else {
     run = false;
-    document.getElementById("clock-picture").src="clock-set2.png";
+    document.getElementById("clock-picture").src="clock-set.png";
     document.getElementById('minbtn').hidden = false;
     document.getElementById('minbtn').onclick = decrementTime;
     document.getElementById('addbtn').hidden = false;
