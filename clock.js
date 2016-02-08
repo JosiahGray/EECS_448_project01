@@ -13,7 +13,8 @@ var run = true;
 function timer() {
     if (run) {
       currentTime = new Date();
-      lastTime = currentTime.toLocaleTimeString('en-US', {hour12: !milTime});
+      var options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+      lastTime = currentTime.toLocaleTimeString('en-US', options);
       document.getElementById("time").innerHTML = lastTime;
     }
     else {
@@ -33,13 +34,13 @@ var decrementTime = function() {
 }
 
 var set24hrs = function () {
-    
+
     milTime = true;
-  
+
 }
 
 var set12hrs = function () {
-    
+
     milTime = false;
 }
 
