@@ -3,7 +3,8 @@ http://www.w3schools.com/js/js_timing.asp
 -->
 var currentTime = new Date();
 var timerInterval = setInterval(timer, 1000);
-var lastTime = currentTime.toLocaleTimeString()
+var lastTime = currentTime.toLocaleTimeString();
+var milTime = false;
 
 var run = true;
 
@@ -11,7 +12,7 @@ var run = true;
 function timer() {
     if (run) {
       currentTime = new Date();
-      lastTime = currentTime.toLocaleTimeString()
+      lastTime = currentTime.toLocaleTimeString();
       document.getElementById("time").innerHTML = lastTime;
     }
     else {
@@ -31,11 +32,16 @@ var decrementTime = function() {
 }
 
 var set24hrs = function () {
-  /*FIX ME*/
+    
+    milTime = true;
+      
+    }
+  
 }
 
 var set12hrs = function () {
-  /*FIX ME*/
+    
+    milTime = false;
 }
 
 var toggleSet = function(){
