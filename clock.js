@@ -40,15 +40,21 @@ var toggleSet = function(){
     run = true;
     document.getElementById("clock-picture").src="clock-base.png";
     document.getElementById('minbtn').hidden = true;
+    document.getElementById('minbtn').onclick = '';
     document.getElementById('addbtn').hidden = true;
+    document.getElementById('addbtn').onclick = '';
     document.getElementById('typebtn').hidden = true;
+    document.getElementById('typebtn').onclick = '';
 
     }
   else {
     run = false;
-    document.getElementById("clock-picture").src="clock-set.png";
+    document.getElementById("clock-picture").src="clock-set2.png";
     document.getElementById('minbtn').hidden = false;
+    document.getElementById('minbtn').onclick = decrementTime;
     document.getElementById('addbtn').hidden = false;
+    document.getElementById('addbtn').onclick = incrementTime;
     document.getElementById('typebtn').hidden = false;
+    document.getElementById('typebtn').onclick = toggleType;
   }
 }
