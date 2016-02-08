@@ -2,10 +2,18 @@ var currentTime = new Date();
 var timerInterval = setInterval(timer, 1000);
 var lastTime = currentTime.toLocaleTimeString()
 
+var run = true;
+
+<!-- This is a filler function to use for positioning and proof of concept -->
 function timer() {
-    currentTime = new Date();
-    lastTime = currentTime.toLocaleTimeString()
-    document.getElementById("time").innerHTML = lastTime;
+    if (run) {
+      currentTime = new Date();
+      lastTime = currentTime.toLocaleTimeString()
+      document.getElementById("time").innerHTML = lastTime;
+    }
+    else {
+      document.getElementById("time").innerHTML = lastTime;
+    }
 }
 var toggleType = function() {
   /*FIX ME*/
@@ -28,5 +36,19 @@ var set12hrs = function () {
 }
 
 var toggleSet = function(){
-  /*FIX ME*/
+  if (!run) {
+    run = true;
+    document.getElementById("clock-picture").src="clock-base.png";
+    document.getElementById('minbtn').hidden = true;
+    document.getElementById('addbtn').hidden = true;
+    document.getElementById('typebtn').hidden = true;
+
+    }
+  else {
+    run = false;
+    document.getElementById("clock-picture").src="clock-set.png";
+    document.getElementById('minbtn').hidden = false;
+    document.getElementById('addbtn').hidden = false;
+    document.getElementById('typebtn').hidden = false;
+  }
 }
