@@ -34,8 +34,6 @@ var decrementTime = function() {
 var set24hrs = function () {
     
     milTime = true;
-      
-    }
   
 }
 
