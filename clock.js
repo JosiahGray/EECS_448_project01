@@ -66,4 +66,10 @@ var toggleSet = function(){
     document.getElementById('typebtn').hidden = false;
     document.getElementById('typebtn').onclick = toggleType;
   }
+
+  var setTime = function(hours, minutes, seconds){
+    currentTime.setHours(hours);
+    currentTime.setMinutes(minutes);
+    currentTime.setSeconds(seconds);
+  }
 }
