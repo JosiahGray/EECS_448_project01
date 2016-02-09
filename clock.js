@@ -12,6 +12,7 @@ var run = true;
 function timer() {
     if (run) {
       currentTime.setSeconds((currentTime.getSeconds() + 1));
+      options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
       lastTime = currentTime.toLocaleTimeString('en-US', options);
       document.getElementById("time").innerHTML = lastTime;
     }
@@ -26,6 +27,7 @@ var toggleType = function() {
 var incrementTime = function() {
   /*FIX ME*/
   currentTime.setHours((currentTime.getHours() + 1)%24);
+  options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
   lastTime = currentTime.toLocaleTimeString('en-US', options);
   document.getElementById("time").innerHTML = lastTime;
 }
@@ -33,6 +35,7 @@ var incrementTime = function() {
 var decrementTime = function() {
   /*FIX ME*/
   currentTime.setHours((currentTime.getHours() - 1)%24);
+  options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
   lastTime = currentTime.toLocaleTimeString('en-US', options);
   document.getElementById("time").innerHTML = lastTime;
 }
@@ -40,12 +43,18 @@ var decrementTime = function() {
 var set24hrs = function () {
 
     milTime = true;
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
 
 }
 
 var set12hrs = function () {
 
     milTime = false;
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
 }
 
 var toggleSet = function(){
