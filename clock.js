@@ -2,16 +2,16 @@
 http://www.w3schools.com/js/js_timing.asp
 -->
 var currentTime = new Date();
+var lastTime = currentTime;
 var timerInterval = setInterval(timer, 1000);
 var milTime = false;
-
+var options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
 var run = true;
 
 <!-- This is a filler function to use for positioning and proof of concept -->
 function timer() {
     if (run) {
       currentTime.setSeconds((currentTime.getSeconds() + 1));
-      var options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
       lastTime = currentTime.toLocaleTimeString('en-US', options);
       document.getElementById("time").innerHTML = lastTime;
     }
@@ -26,11 +26,15 @@ var toggleType = function() {
 var incrementTime = function() {
   /*FIX ME*/
   currentTime.setHours((currentTime.getHours() + 1)%24);
+  lastTime = currentTime.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = lastTime;
 }
 
 var decrementTime = function() {
   /*FIX ME*/
   currentTime.setHours((currentTime.getHours() - 1)%24);
+  lastTime = currentTime.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = lastTime;
 }
 
 var set24hrs = function () {
