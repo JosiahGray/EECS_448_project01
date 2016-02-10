@@ -5,37 +5,40 @@ var currentTime = new Date();
 var lastTime = currentTime;
 var timerInterval = setInterval(timer, 1000);
 var milTime = false;
-<<<<<<< HEAD
 var lastTime = currentTime.toLocaleTimeString('en-US', {hour12: !(milTime)});
 
-=======
 var options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
->>>>>>> 197d26aba324d68699e254715c441dda0c4549f9
 var run = true;
 
 <!-- This is a filler function to use for positioning and proof of concept -->
-function timer() {
-    if (run) {
-      currentTime.setSeconds((currentTime.getSeconds() + 1));
-      options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
-      lastTime = currentTime.toLocaleTimeString('en-US', options);
-      document.getElementById("time").innerHTML = lastTime;
-    }
-    else {
+ function timer() {
+      if (run) {
+        currentTime.setSeconds((currentTime.getSeconds() + 1));
+        options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+        lastTime = currentTime.toLocaleTimeString('en-US', options);
         document.getElementById("time").innerHTML = lastTime;
-        //if(.getSeconds() % 2 == 0){
-          //  document.getElementById("time").hidden = true;
-            
-        //}
-        //else{
-        
-          //  document.getElementById("time").hidden = false;
-        //}
-    }
-}
+      }
+     else {
+       document.getElementById("time").innerHTML = lastTime;
+       //flashTime();
+     }
+ }
 var toggleType = function() {
   /*FIX ME*/
 }
+var on = true;
+/*var flashTime = function(){
+    if(on){
+    
+        document.getElementById("time").hidden = false;
+        on = false;
+    } else {
+    
+        document.getElementById("time").hidden = true;
+        on = true;
+    }
+    setInterval(flashTime, 350);
+}*/
 
 var incrementTime = function() {
   /*FIX ME*/
