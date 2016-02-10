@@ -6,7 +6,6 @@ var timerInterval = setInterval(timer, 1000);
 var milTime = false;
 var lastTime = currentTime.toLocaleTimeString('en-US', {hour12: !(milTime)});
 
-
 var run = true;
 
 <!-- This is a filler function to use for positioning and proof of concept -->
@@ -17,7 +16,15 @@ function timer() {
       document.getElementById("time").innerHTML = lastTime;
     }
     else {
-      document.getElementById("time").innerHTML = lastTime;
+        document.getElementById("time").innerHTML = lastTime;
+        //if(.getSeconds() % 2 == 0){
+          //  document.getElementById("time").hidden = true;
+            
+        //}
+        //else{
+        
+          //  document.getElementById("time").hidden = false;
+        //}
     }
 }
 var toggleType = function() {
