@@ -14,6 +14,7 @@ var setMode = "hour"; //can be "hour", "minute", or "second"
 <!-- This is a filler function to use for positioning and proof of concept -->
  function timer() {
       if (run) {
+        document.getElementById("time").hidden = false;
         currentTime.setSeconds((currentTime.getSeconds() + 1));
         options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
         lastTime = currentTime.toLocaleTimeString('en-US', options);
@@ -21,7 +22,7 @@ var setMode = "hour"; //can be "hour", "minute", or "second"
       }
      else {
        document.getElementById("time").innerHTML = lastTime;
-       //flashTime();
+       flashTime();
      }
  }
 var toggleType = function() {
@@ -40,9 +41,8 @@ var toggleType = function() {
   }
 }
 var on = true;
-/*var flashTime = function(){
+var flashTime = function(){
     if(on){
-    
         document.getElementById("time").hidden = false;
         on = false;
     } else {
@@ -50,8 +50,8 @@ var on = true;
         document.getElementById("time").hidden = true;
         on = true;
     }
-    setInterval(flashTime, 350);
-}*/
+    
+}
 
 var incrementTime = function() {
 
