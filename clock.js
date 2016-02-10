@@ -30,14 +30,17 @@ var toggleType = function() {
   if(setMode == "hour")
   {
     setMode = "minute";
+    document.getElementById("clock-picture").src="clock-set-minutes.png";
   }
   else if(setMode == "minute")
   {
     setMode = "second";
+    document.getElementById("clock-picture").src="clock-set-seconds.png";
   }
   else
   {
     setMode = "hour";
+    document.getElementById("clock-picture").src="clock-set-hour.png";
   }
 }
 var on = true;
@@ -126,7 +129,7 @@ var toggleSet = function(){
 
   if (!run) {
     run = true;
-    document.getElementById("clock-picture").src="clock-base.png";
+    document.getElementById("clock-picture").src="clock-base-updated.png";
     document.getElementById('minbtn').hidden = true;
     document.getElementById('minbtn').onclick = '';
     document.getElementById('addbtn').hidden = true;
@@ -137,7 +140,7 @@ var toggleSet = function(){
     }
   else {
     run = false;
-    document.getElementById("clock-picture").src="clock-set.png";
+    document.getElementById("clock-picture").src="clock-set-hour.png";
     document.getElementById('minbtn').hidden = false;
     document.getElementById('minbtn').onclick = decrementTime;
     document.getElementById('addbtn').hidden = false;
