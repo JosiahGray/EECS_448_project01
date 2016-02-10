@@ -9,6 +9,7 @@ var lastTime = currentTime.toLocaleTimeString('en-US', {hour12: !(milTime)});
 
 var options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
 var run = true;
+var setMode = "hour"; //can be "hour", "minute", or "second"
 
 <!-- This is a filler function to use for positioning and proof of concept -->
  function timer() {
@@ -24,7 +25,19 @@ var run = true;
      }
  }
 var toggleType = function() {
-  /*FIX ME*/
+
+  if(setMode == "hour")
+  {
+    setMode = "minute";
+  }
+  else if(setMode == "minute")
+  {
+    setMode = "second";
+  }
+  else
+  {
+    setMode = "hour";
+  }
 }
 var on = true;
 /*var flashTime = function(){
@@ -41,19 +54,53 @@ var on = true;
 }*/
 
 var incrementTime = function() {
-  /*FIX ME*/
-  currentTime.setHours((currentTime.getHours() + 1)%24);
-  options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
-  lastTime = currentTime.toLocaleTimeString('en-US', options);
-  document.getElementById("time").innerHTML = lastTime;
+
+  if(setMode == "hour")
+  {
+    currentTime.setHours((currentTime.getHours() + 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
+  else if(setMode == "minute")
+  {
+    currentTime.setMinutes((currentTime.getMinutes() + 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
+  else
+  {
+    currentTime.setSeconds((currentTime.getSeconds() + 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
 }
 
 var decrementTime = function() {
-  /*FIX ME*/
-  currentTime.setHours((currentTime.getHours() - 1)%24);
-  options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
-  lastTime = currentTime.toLocaleTimeString('en-US', options);
-  document.getElementById("time").innerHTML = lastTime;
+
+  if(setMode == "hour")
+  {
+    currentTime.setHours((currentTime.getHours() - 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
+  else if(setMode == "minute")
+  {
+    currentTime.setMinutes((currentTime.getMinutes() - 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
+  else
+  {
+    currentTime.setSeconds((currentTime.getSeconds() - 1));
+    options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+    lastTime = currentTime.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = lastTime;
+  }
 }
 
 var set24hrs = function () {
@@ -74,6 +121,9 @@ var set12hrs = function () {
 }
 
 var toggleSet = function(){
+
+  setMode = "hour";
+
   if (!run) {
     run = true;
     document.getElementById("clock-picture").src="clock-base.png";
@@ -95,10 +145,10 @@ var toggleSet = function(){
     document.getElementById('typebtn').hidden = false;
     document.getElementById('typebtn').onclick = toggleType;
   }
+}
 
-  var setTime = function(hours, minutes, seconds){
-    currentTime.setHours(hours);
-    currentTime.setMinutes(minutes);
-    currentTime.setSeconds(seconds);
-  }
+var setTime = function(hours, minutes, seconds){
+  currentTime.setHours(hours);
+  currentTime.setMinutes(minutes);
+  currentTime.setSeconds(seconds);
 }
