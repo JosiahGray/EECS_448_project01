@@ -3,7 +3,8 @@ http://www.w3schools.com/js/js_timing.asp
 -->
 var currentTime = new Date();
 var lastTime = currentTime;
-var timerInterval = setInterval(timer, 1000);
+//var timerInterval = setInterval(timer, 1000);
+var timerInterval = setInterval(timer, 500);
 var milTime = false;
 var lastTime = currentTime.toLocaleTimeString('en-US', {hour12: !(milTime)});
 
@@ -13,18 +14,20 @@ var setMode = "hour"; //can be "hour", "minute", or "second"
 
 <!-- This is a filler function to use for positioning and proof of concept -->
  function timer() {
-      if (run) {
-        document.getElementById("time").hidden = false;
-        currentTime.setSeconds((currentTime.getSeconds() + 1));
-        options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
-        lastTime = currentTime.toLocaleTimeString('en-US', options);
-        document.getElementById("time").innerHTML = lastTime;
-      }
-     else {
-       document.getElementById("time").innerHTML = lastTime;
-       flashTime();
-     }
+    if (run) {
+      document.getElementById("time").hidden = false;
+      //currentTime.setSeconds((currentTime.getSeconds() + 1));
+      currentTime.setMilliseconds((currentTime.getMilliseconds() + 500));
+      options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !milTime};
+      lastTime = currentTime.toLocaleTimeString('en-US', options);
+      document.getElementById("time").innerHTML = lastTime;
+    }
+    else {
+      document.getElementById("time").innerHTML = lastTime;
+      flashTime();
+    }
  }
+
 var toggleType = function() {
 
   if(setMode == "hour")
@@ -43,17 +46,18 @@ var toggleType = function() {
     document.getElementById("clock-picture").src="clock-set-hour.png";
   }
 }
+
 var on = true;
 var flashTime = function(){
     if(on){
         document.getElementById("time").hidden = false;
         on = false;
     } else {
-    
+
         document.getElementById("time").hidden = true;
         on = true;
     }
-    
+
 }
 
 var incrementTime = function() {
