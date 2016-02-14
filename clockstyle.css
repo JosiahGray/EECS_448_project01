@@ -2,27 +2,39 @@
     font-family: DSEG14Classic;
     src: url(DSEG14Classic-Bold.ttf);
 }
-
+/*style choices for the clock*/
 #time {
+	/*font chosen*/
     font-family: DSEG14Classic;
+	/*color in hexidecimal*/
     color: #00ff00;
+	/*size of font*/
     font-size:50px;
+	/*desired shadow amount*/
     text-shadow:0px 0px 10px #00FF00;
   }
-
+/*word and image wrapping*/
   .wrap {
+	  /*position relative to window it is being displayed on */
     position:relative;
   }
   .wrap img {
+	  /*position is relative to window it is being displayed on */
     position:relative;
+	/*order it will be stacked on top of other elements*/ 
     z-index:1;
   }
+  /*wrap description*/ 
   .wrap .desc {
+	  /*position will be absolute, regardless of other display factors*/
     position:absolute;
+	/*display as given*/
     width:100%;
     top:350px;
     left:60;
     max-width: 400px;
+	/*will be stacked on top*/
     z-index:2;
+	/*right justified*/
     text-align:right;
   }
