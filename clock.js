@@ -167,6 +167,7 @@ var flashTime = function(){
  */
 var incrementTime = function() {
 	//if set mode is effecting the hour 
+    document.getElementById("time").hidden = false;
   if(setMode == "hour")
   {
 	  //add one to current hours 
@@ -204,6 +205,7 @@ var incrementTime = function() {
  */
 var decrementTime = function() {
 	//if set mode is effecting hours 
+    document.getElementById("time").hidden = false;
   if(setMode == "hour")
   {
 	  //subtract one from current hours 
