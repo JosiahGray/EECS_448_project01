@@ -1,33 +1,33 @@
 <html>
 <head>
+<!--We will be using clockstyle css file in order to dictate how the clock will be displayed on the html file-->
 <link rel="stylesheet" type="text/css" href="clockstyle.css">
 </head>
 <body>
 
+	<!--controls what clock picture will be displayed, default will be the updated base. dimensions 802x802 pixels-->
   <div class="wrap">
     <img id="clock-picture" src="clock-base-updated.png" alt="clock-base" width="802" height="802" usemap="#clockmap">
     <span id="time" class="desc"></span>
   </div>
-<!-- getting ready for clockmap stuff - adjust button positions later if they're off!
-    The coordinates below were obtained in GIMP by getting really close and pointing at pixels where I wanted button boarders.
-    set toggle button coordinates: "570,325,640,424"
-    minus time button coordinates: "169,672,275,739"
-    add time button coordinates: "559,673,668,742"
-    type (hour/minute/second) button coordinates: "371,583,466,642"
-    12 hour button coordinates: "641,325,667,424"
-    24 hour button coordinates: "668,325,731,424"
-    put them here:
--->
+  <!--map of locations on the clock picture--> 
   <map name="clockmap">
-    <area id="setbtn" shape="rect" coords="570,325,620,424" onclick="toggleSet()"> <!-- need a toggleSet() function! -->
-    <area id="minbtn" shape="rect" coords="169,672,275,739" onclick="decrementTime()" hidden = true> <!-- need a decrementTime() function! -->
-    <area id="addbtn" shape="rect" coords="559,673,668,742" onclick="incrementTime()" hidden = true> <!-- need a incrementTime() function! -->
-    <area id="typebtn" shape="rect" coords="371,583,466,642" onclick="toggleType()" hidden = true> <!-- need a toggleType() function! -->
-    <area id="12btn" shape="rect" coords="621,325,667,424" onclick="set12hrs()"> <!-- need a set12() function! -->
-    <area id="24btn" shape="rect" coords="668,325,731,424" onclick="set24hrs()"> <!-- need a set24() function! -->
+	<!--area mapping the set button, coordinates of left, top, right, and button, toggleSet function will occur when clicked-->
+    <area id="setbtn" shape="rect" coords="570,325,624,424" onclick="toggleSet()">
+	<!--area mapping the minus button, coordinates of left, top, right, and button, decrementTime function will occur when clicked-->
+    <area id="minbtn" shape="rect" coords="169,672,275,739" onclick="decrementTime()" hidden = true>
+	<!--area mapping the add button, coordinates of left, top, right, and button, incrementTime function will occur when clicked-->
+    <area id="addbtn" shape="rect" coords="559,673,668,742" onclick="incrementTime()" hidden = true>
+	<!--area mapping the type toggle button between hours, minutes, and seconds, coordinates of left, top, right, and button, toggleType function will occur when clicked-->
+    <area id="typebtn" shape="rect" coords="371,583,466,642" onclick="toggleType()" hidden = true>
+	<!--area mapping the 12 hours button, coordinates of left, top, right, and button, set12Hours function will occur when clicked-->
+    <area id="12btn" shape="rect" coords="625,325,676,424" onclick="set12hrs()">
+	<!--area mapping the 24 hours button, coordinates of left, top, right, and button, set24hours function will occur when clicked-->
+    <area id="24btn" shape="rect" coords="677,325,731,424" onclick="set24hrs()">
   </map>
-
+	<!-- we will be using jquery javascript library in order to create the optimal html page-->
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <!-- the main file where clock functionality takes place-->
   <script src="clock.js"></script>
 </body>
 </html>
